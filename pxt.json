@@ -7,7 +7,9 @@
         "arcade-character-animations": "github:microsoft/arcade-character-animations#v0.0.2",
         "BetterSettings": "github:sargedev/bettersettings#2023.5.1",
         "Declutter": "github:sargedev/declutter#6b0626bf1bd2c7d9a70b846031b5226e48ee932a",
-        "Timers": "github:microsoft/arcade-timers#v1.1.0"
+        "Timers": "github:microsoft/arcade-timers#v1.1.0",
+        "pxt-zoom": "github:kiwiphoenix364/pxt-zoom#v2.0.1",
+        "arcade-tile-util": "github:microsoft/arcade-tile-util#v1.2.0"
     },
     "files": [
         "main.blocks",
@@ -15,7 +17,9 @@
         "README.md",
         "assets.json",
         "images.g.jres",
-        "images.g.ts"
+        "images.g.ts",
+        "tilemap.g.jres",
+        "tilemap.g.ts"
     ],
     "testFiles": [
         "test.ts"
