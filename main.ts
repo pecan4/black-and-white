@@ -27,17 +27,37 @@ function textbox (text: string, person: Image, person2: Image, name: string) {
     declutter.offload("dialogue1")
     declutter.offload("dialogue2")
 }
+scene.setBackgroundColor(1)
 tiles.setCurrentTilemap(tilemap`level`)
-tileUtil.centerCameraOnTile(tiles.getTileLocation(1, 12))
-Zoom.SetZoomFilter(5, Mode.Center)
-timer.background(function () {
-    Zoom.SetZoomFilter(1, Mode.Center, 1000)
-})
-textbox("AHHHHH", assets.image`alex jaw dropped`, assets.image`null image`, "alex")
-textbox("WHAT THE HELL JUST HAPPEND TO ME???", assets.image`alex jaw dropped`, assets.image`null image`, "alex")
-textbox("Where am I???", assets.image`alex neutral`, assets.image`null image`, "alex")
-textbox("Where's all the color? why is it black and white?", assets.image`alex neutral`, assets.image`null image`, "alex")
-textbox("I should probably look around.", assets.image`alex neutral`, assets.image`null image`, "alex")
+if (blockSettings.exists("intro seen?")) {
+    if (blockSettings.readBoolean("intro seen?")) {
+    	
+    } else {
+        tileUtil.centerCameraOnTile(tiles.getTileLocation(1, 12))
+        Zoom.SetZoomFilter(5, Mode.Center)
+        timer.background(function () {
+            Zoom.SetZoomFilter(1, Mode.Center, 1000)
+        })
+        textbox("AHHHHH", assets.image`alex jaw dropped`, assets.image`null image`, "alex")
+        textbox("WHAT THE HELL JUST HAPPEND TO ME???", assets.image`alex jaw dropped`, assets.image`null image`, "alex")
+        textbox("Where am I???", assets.image`alex neutral`, assets.image`null image`, "alex")
+        textbox("Where's all the color? why is it black and white?", assets.image`alex neutral`, assets.image`null image`, "alex")
+        textbox("I should probably look around.", assets.image`alex neutral`, assets.image`null image`, "alex")
+        blockSettings.writeBoolean("intro seen?", true)
+    }
+} else {
+    tileUtil.centerCameraOnTile(tiles.getTileLocation(1, 12))
+    Zoom.SetZoomFilter(5, Mode.Center)
+    timer.background(function () {
+        Zoom.SetZoomFilter(1, Mode.Center, 1000)
+    })
+    textbox("AHHHHH", assets.image`alex jaw dropped`, assets.image`null image`, "alex")
+    textbox("WHAT THE HELL JUST HAPPEND TO ME???", assets.image`alex jaw dropped`, assets.image`null image`, "alex")
+    textbox("Where am I???", assets.image`alex neutral`, assets.image`null image`, "alex")
+    textbox("Where's all the color? why is it black and white?", assets.image`alex neutral`, assets.image`null image`, "alex")
+    textbox("I should probably look around.", assets.image`alex neutral`, assets.image`null image`, "alex")
+    blockSettings.writeBoolean("intro seen?", true)
+}
 let mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
